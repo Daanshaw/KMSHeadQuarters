@@ -95,6 +95,41 @@ public class DataTier {
         }
     }
 
+    public void extractPatient(Patient patient) throws Exception {
+        Statement stmt;
+        ResultSet rs;
+        String id;
+        try{
+            Connection conn = getConnection();
+
+            //PreparedStatement exist = conn.prepareStatement("SELECT * FROM patient WHERE id=(SELECT max(id) FROM patient)");
+            stmt = conn.createStatement();     // Create a Statement object           1
+            rs = stmt.executeQuery("SELECT * FROM patient WHERE id=(SELECT max(id) FROM patient)");
+
+            // Get the result table from the query
+            while (rs.next()) {               // Position the cursor
+                //            3
+                id = rs.getString(1);
+                patient.setName(rs.getString(2));
+                patient.setSurname(rs.getString(3));
+                patient.setAddress(rs.getString(5));
+                patient.setMedicalCondition(rs.getString(6));
+                patient.setNhsRegistrationNo(rs.getInt(4));
+                // Retrieve only the first column value
+
+
+
+            }
+
+        } catch (Exception e) {
+
+            System.out.println(e);
+        }
+        finally {
+            System.out.println("Existed checked successfully.");
+        }
+    }
+
 
 }
 
