@@ -8,11 +8,12 @@ import java.util.Scanner;
 
 
 public class ApplicationTier {
+    PresentationTier pt = new PresentationTier();
 
     void applicationTier() throws Exception {
         Scanner scanner = new Scanner(System.in);  // Create a Scanner object
 
-        PresentationTier pt = new PresentationTier();
+
 
         DataTier dt = new DataTier();
 
@@ -28,15 +29,15 @@ public class ApplicationTier {
         } else if (option == 1) {
 
             //multiple scanners to read input from user
-            pt.enterName();
+            pt.enterNameMsg();
             String name = scanner.next();
-            pt.enterSurname();
+            pt.enterSurnameMsg();
             String surname = scanner.next();
-            pt.enterNhsNo();
+            pt.enterNhsNoMsg();
             int nhsRegistrationNo = scanner.nextInt();
-            pt.enterAddress();
+            pt.enterAddressMsg();
             String address = scanner.next();
-            pt.enterMedicalCond();
+            pt.enterMedicalCondMsg();
             String medicalCondition = scanner.next();
 
             //creating new patient with the input from user
@@ -66,18 +67,18 @@ public class ApplicationTier {
 
             //automatically sends patient's data to regional hospital
 
-            sendToHospitalAndAmbulance(patient);
+            sendToHospital(patient);
 
 
         }
     }
-
-    void sendToHospitalAndAmbulance(Patient patient) {
+//send generated request???
+    void sendToHospital(Patient patient) {
 
         try {
             // Set up the keyboard input
             BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Sending patient's info...");
+
 
             String ip = "192.168.0.3";
 
@@ -90,7 +91,7 @@ public class ApplicationTier {
 
             // Declare the object with the registry
             registry.rebind("patient", student_stub);
-            System.out.println("Patient data sent successfully!");
+            pt.dataSendSuccessfullyMsg();
         } catch (Exception e) {
             System.err.println("Error Occurred");
             System.err.println(e.getMessage());
@@ -99,7 +100,7 @@ public class ApplicationTier {
 
     }
 
-//    public void sendToAmbulance(Patient patient){
+//    public void sendRequestToAmbulance(Patient patient){
 //
 //        try
 //        {

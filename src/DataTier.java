@@ -36,9 +36,7 @@ public class DataTier {
         } catch (SQLException e) {
             System.out.println(e);
         }
-        finally{
-            System.out.println("Table created succesfully.");
-        }
+
 
     }
 
@@ -63,9 +61,7 @@ public class DataTier {
         } catch (Exception e) {
             System.out.println(e);
         }
-        finally {
-            System.out.println("Data inserted successfully!");
-        }
+
     }
     //checks if patient exists in database by nhs number
     public void checkIfExist(Patient patient) throws Exception {
@@ -83,7 +79,7 @@ public class DataTier {
 //            insert.setString(6, patient.getMedicalCondition());
             ResultSet rs = exist.executeQuery();
             while(rs.next()){
-            pt.patientExistMessage();
+            pt.patientExistMsg();
             pt.presentationTier();
 
             }
@@ -94,9 +90,7 @@ public class DataTier {
 
             System.out.println(e);
         }
-        finally {
-            System.out.println("Existed checked successfully.");
-        }
+
     }
 
     //extracts patient's data from database
@@ -131,9 +125,7 @@ public class DataTier {
 
             System.out.println(e);
         }
-        finally {
-            System.out.println("Patient's data extracted successfully.");
-        }
+
     }
 
 

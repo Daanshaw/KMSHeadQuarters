@@ -10,7 +10,7 @@ public class PresentationTier {
 
         while (true) {
             System.out.println("Welcome to KWIK MEDICAL SYSTEM");
-            System.out.println("Choose form one of the following options:");
+            System.out.println("Choose from one of the following options:");
             System.out.println("");
             System.out.println("1. Enter patient's info into the database.");
             System.out.println("2. Exit program.");
@@ -24,28 +24,36 @@ public class PresentationTier {
 
         }
     }
-    void patientExistMessage(){
+    void patientExistMsg(){
         System.out.println("Patient exist in the database! Try again!");
 
     }
-    void enterName(){
+    void enterNameMsg(){
 
         System.out.println("Enter patient's name:");
     }
-    void enterSurname(){
+    void enterSurnameMsg(){
 
         System.out.println("Enter patient's surname:");
     }
-    void enterNhsNo(){
+    void enterNhsNoMsg(){
 
         System.out.println("Enter patient's NHS registration number:");
     }
-    void enterAddress(){
+    void enterAddressMsg(){
 
         System.out.println("Enter patient's address:");
     }
-    void enterMedicalCond(){
+    void enterMedicalCondMsg(){
 
         System.out.println("Enter patient's medical condition:");
+    }
+    void sendingInfoMsg(){
+
+        System.out.println("Sending patient's info...");
+    }
+    void dataSendSuccessfullyMsg(){
+
+        System.out.println("Sending patient's info...");
     }
 }
