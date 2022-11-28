@@ -6,6 +6,8 @@ public class DataTier {
 
     PresentationTier pt = new PresentationTier();
 
+    //connection to database
+
     public static Connection getConnection(){
         try{
             String driver = "com.mysql.cj.jdbc.Driver";
@@ -14,7 +16,7 @@ public class DataTier {
             String password= "";
             Class.forName(driver);
             Connection conn = DriverManager.getConnection(databaseUrl, username, password);
-            System.out.println("Database connected");
+            //System.out.println("Database connected");
             return conn;
 
         } catch (Exception e) {
@@ -25,7 +27,7 @@ public class DataTier {
         return null;
     }
 
-
+    //method to create new table in database
     public void createTable() throws SQLException {
         try {
             Connection conn = getConnection();
@@ -39,6 +41,8 @@ public class DataTier {
         }
 
     }
+
+    //method to insert patient's info to database
 
     public void insert(Patient patient){
 
@@ -60,10 +64,10 @@ public class DataTier {
             System.out.println(e);
         }
         finally {
-            System.out.println("Data inserted successfully.");
+            System.out.println("Data inserted successfully!");
         }
     }
-    //checks if patient exists in database by nhs number, if exists, redirects to beginning of the program
+    //checks if patient exists in database by nhs number
     public void checkIfExist(Patient patient) throws Exception {
 
         try{
@@ -94,6 +98,8 @@ public class DataTier {
             System.out.println("Existed checked successfully.");
         }
     }
+
+    //extracts patient's data from database
 
     public void extractPatient(Patient patient) throws Exception {
         Statement stmt;
@@ -126,7 +132,7 @@ public class DataTier {
             System.out.println(e);
         }
         finally {
-            System.out.println("Existed checked successfully.");
+            System.out.println("Patient's data extracted successfully.");
         }
     }
 
