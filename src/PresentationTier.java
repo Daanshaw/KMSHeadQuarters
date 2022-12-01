@@ -12,7 +12,7 @@ public class PresentationTier {
             System.out.println("Welcome to KWIK MEDICAL SYSTEM");
             System.out.println("Choose from one of the following options:");
             System.out.println("");
-            System.out.println("1. Enter patient's info into the database.");
+            System.out.println("1. Enter patient's info into the database and send to hospital.");
             System.out.println("2. Exit program.");
 
             //moves to application tier
@@ -25,7 +25,7 @@ public class PresentationTier {
         }
     }
     void patientExistMsg(){
-        System.out.println("Patient exist in the database! Try again!");
+        System.out.println("Patient exist in the database!");
 
     }
     void enterNameMsg(){
